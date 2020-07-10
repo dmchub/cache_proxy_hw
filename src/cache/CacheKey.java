@@ -17,4 +17,19 @@ public class CacheKey {
         }
         return hash;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if(this == obj) return true;
+        if(obj == null || getClass() != obj.getClass()) return false;
+
+        CacheKey that = (CacheKey)obj;
+        if(!this.methodName.equals(that.methodName)) return false;
+        if(this.args.length != that.args.length) return false;
+        for (int i = 0; i < args.length; i++){
+            if(!this.args[i].equals(that.args[i])) return false;
+        }
+
+        return true;
+    }
 }
