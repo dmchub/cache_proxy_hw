@@ -10,4 +10,5 @@ import static java.lang.annotation.RetentionPolicy.*;
 @Target(METHOD)
 
 public @interface Cache {
+    CacheType cacheType() default CacheType.FILE;
 }

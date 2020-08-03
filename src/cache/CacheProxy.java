@@ -7,7 +7,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Proxy;
 
 public class CacheProxy {
-    public CacheProxy() {
+    private final String cacheDir;
+
+    public CacheProxy(String cacheDir) {
+        this.cacheDir = cacheDir;
     }
 
     public Service cache(Service service) throws    NoSuchMethodException, IllegalAccessException,
@@ -15,6 +18,6 @@ public class CacheProxy {
 
         Class<?> proxyClass = Proxy.getProxyClass(Service.class.getClassLoader(), Service.class);
 
-        return (Service) proxyClass.getConstructor(InvocationHandler.class).newInstance(new CacheHandler(service));
+        return (Service) proxyClass.getConstructor(InvocationHandler.class).newInstance(new CacheHandler(service, cacheDir));
     }
 }

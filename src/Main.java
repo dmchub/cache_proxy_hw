@@ -11,7 +11,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         try {
-            CacheProxy cacheProxy = new CacheProxy();
+            CacheProxy cacheProxy = new CacheProxy(".");
             Service service = cacheProxy.cache(new ServiceImpl());
             List<String> strings = null;
 
