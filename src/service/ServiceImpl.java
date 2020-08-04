@@ -8,4 +8,9 @@ public class ServiceImpl implements Service {
     public List<String> doHardWork(String string, Object args) {
         return Arrays.asList(string);
     }
+
+    @Override
+    public List<String> init(String string, Object args) {
+        return Arrays.asList(string);
+    }
 }
